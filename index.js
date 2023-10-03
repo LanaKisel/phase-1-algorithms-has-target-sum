@@ -1,16 +1,29 @@
-function hasTargetSum(array, target) {
-  let returnValue = false
-  for (let i = 0; i < array.length - 1; i++) {
-    for (let j = i + 1; j <= array.length - 1; j++) {
-      const a = array[i];
-      const b = array[j];
-      const sumNumber = a + b;
-      if (sumNumber === target) {
-        returnValue = true
-      }
-    }}
-    return returnValue
+// function hasTargetSum(array, target) {
+//   let returnValue = false
+//   for (let i = 0; i < array.length - 1; i++) {
+//     for (let j = i + 1; j <= array.length - 1; j++) {
+//       const a = array[i];
+//       const b = array[j];
+//       const sumNumber = a + b;
+//       if (sumNumber === target) {
+//         returnValue = true
+//       }
+//     }}
+//     return returnValue
+//   }
+
+
+  function hasTargetSum(array, target) {
+    const seenNumbers  = {}
+    for (const number of array) {
+      const complement = target - number;
+      if(complement in seenNumbers) return true;
+      seenNumbers[number] = true;
+          }
+          return false
   }
+
+
   
   // Write your algorithm here
 
@@ -67,6 +80,11 @@ if (require.main === module) {
 
   console.log("Expecting: true");
   console.log("=>", hasTargetSum([-1,-3, 5], -4))
+
+  console.log("");
+
+  console.log("Expecting: false");
+  console.log("=>", hasTargetSum([5], -4))
 }
 
 module.exports = hasTargetSum;
