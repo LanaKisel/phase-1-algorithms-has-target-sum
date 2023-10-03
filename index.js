@@ -1,3 +1,4 @@
+//    first solution
 // function hasTargetSum(array, target) {
 //   let returnValue = false
 //   for (let i = 0; i < array.length - 1; i++) {
@@ -12,16 +13,16 @@
 //     return returnValue
 //   }
 
-
-  function hasTargetSum(array, target) {
-    const seenNumbers  = {}
-    for (const number of array) {
-      const complement = target - number;
-      if(complement in seenNumbers) return true;
-      seenNumbers[number] = true;
-          }
-          return false
+//second solution:
+function hasTargetSum(array, target) {
+  const seenNumbers = {}
+  for (const number of array) {
+    const complement = target - number;
+    if (complement in seenNumbers) return true;
+    seenNumbers[number] = true;
   }
+  return false
+}
 
 
   
@@ -30,7 +31,8 @@
 
 /* 
   Write the Big O time complexity of your function here
-O(n²)	Quadratic	Nested iteration
+O(n²)	Quadratic	Nested iteration for first solution;
+o(n) for second solution
 */
 
 /* 
